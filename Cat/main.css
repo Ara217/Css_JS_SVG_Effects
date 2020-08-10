@@ -1,0 +1,125 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #EEE;
+    overflow: hidden;
+    display: flex;
+}
+
+.sprites {
+    display: flex;
+    flex: 1;
+    background: linear-gradient(122deg, white 60%, #000 50%)
+}
+
+.sprite {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: hidden;
+}
+.catSprite {
+    width: 408px;
+    height: 199px;
+    margin: 0;
+    right: 0;
+    left: auto;
+    top: auto;
+    -webkit-animation: catSprint 1.5s infinite linear;
+    animation:  catSprint 1.5s infinite linear;
+}
+.catSprite > img {
+    position: absolute;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    top: 0;
+    left: 0;
+    -webkit-animation: catSpriteAnim  0.3939393939s infinite step-end;
+    animation:  catSpriteAnim 0.3939393939s infinite step-end;
+}
+
+@keyframes catSpriteAnim {
+    7.6923076923% {
+        top: 0px;
+        left: 0px;
+    }
+    15.3846153846% {
+        top: -199px;
+        left: 0px;
+    }
+    23.0769230769% {
+        top: -398px;
+        left: 0px;
+    }
+    30.7692307692% {
+        top: -597px;
+        left: 0px;
+    }
+    38.4615384615% {
+        top: -796px;
+        left: 0px;
+    }
+    46.1538461538% {
+        top: -995px;
+        left: 0px;
+    }
+    53.8461538462% {
+        top: -1194px;
+        left: 0px;
+    }
+    61.5384615385% {
+        top: -1393px;
+        left: 0px;
+    }
+    69.2307692308% {
+        top: -1592px;
+        left: 0px;
+    }
+    76.9230769231% {
+        top: -1791px;
+        left: 0px;
+    }
+    84.6153846154% {
+        top: -1990px;
+        left: 0px;
+    }
+    92.3076923077% {
+        top: -2189px;
+        left: 0px;
+    }
+    100% {
+        top: -2388px;
+        left: 0px;
+    }
+}
+@-webkit-keyframes catSprint {
+    0% {
+        right: 0;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    100% {
+        right: 100%;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+@keyframes catSprint {
+    0% {
+        right: 0;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    100% {
+        right: 100%;
+        -webkit-transform: none;
+        transform: none;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<!--<h2>THIS IS CALLED GOOEY EFFECT</h2>-->
+<div class="container">
+    <div class="top"></div>
+    <div class="center"></div>
+    <div class="bottom"></div>
+</div>
+<svg>
+    <filter id="gooey">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="15"/>
+        <feColorMatrix values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 20 -10"/>
+    </filter>
+</svg>
+<script>
+    let count = 20;
+    let topBar = document.querySelector(".top");
+    let container = document.querySelector(".container");
+    for(let i = 0; i < count; i++) {
+        container.insertBefore(randomizedBall(), topBar)
+    }
+
+    function randomizedBall() {
+        let ball = document.createElement("div");
+        let randomSize = getRandomBetween(150, 50);
+        let translate = getRandomBetween(45, -45);
+        ball.classList.add("ball");
+        ball.style.setProperty("--anim-delay", `${getRandomBetween(15, -5)}s`);
+        ball.style.setProperty("--transform-start", `translateX(${translate}vw) translateY(-${getRandomBetween(40, 0)}vh)`);
+        ball.style.setProperty("--transform-x", `translateX(${translate}vw)`);
+        ball.style.setProperty("--size", `${randomSize}px`);
+        ball.style.setProperty("--color", `#${Math.floor(Math.random()*16777215).toString(16)}`);
+        return ball;
+    }
+
+    function getRandomBetween(max, min) {
+        return  Math.floor(Math.random() * (max - min) + min);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+html {
+  box-sizing: border-box;
+  font-family: sans-serif
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  display: flex;
+}
+
+body .container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  filter: url(#gooey);
+  /*filter: blur(10px)  contrast(20);*/
+}
+
+body .container .top, body .container .bottom {
+  width: 100vw;
+  height: 100px;
+  background-color: black;
+}
+
+body .container .center {
+  width: 50vw;
+  height: 50px;
+  padding: 10px 20px;
+  color: whitesmoke;
+  border-radius: 4px;
+  background: black;
+}
+
+body .container .ball {
+  width: var(--size);
+  height: var(--size);
+  position: absolute;
+  color: whitesmoke;
+  border-radius: 50%;
+  background: black;
+  animation: fall 15s infinite;
+  animation-delay: var(--anim-delay);
+  top: var(--top);
+}
+
+@keyframes fall {
+  from {
+    transform: var(--transform-start);
+  }
+  80% {
+    transform: var(--transform-x) translateY(87vh);
+  }
+  100% {
+    transform: var(--transform-x) translateY(100vh);
+  }
+}
+
+body svg {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}

@@ -1,0 +1,99 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+div {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.first svg {
+  width: 400px;
+  height: 200px;
+}
+
+.first svg path:nth-of-type(-n+6) {
+  transform: translateY(-20%);
+  opacity: 0;
+  animation: small-parts-anim 5s ease forwards calc(-3s * var(--i))
+}
+
+/*first six small paths*/
+
+.first svg path:nth-child(n+8):nth-child(-n+13) {
+  transform: translateY(20%);
+  opacity: 0;
+  animation: small-parts-anim 5s ease forwards calc(-3s * var(--i))
+}
+
+.first svg path:nth-child(n+15):nth-child(-n+20) {
+  transform: translateX(-20%);
+  opacity: 0;
+  animation: small-parts-anim 5s ease forwards calc(-3s * var(--i))
+}
+
+.first svg path:nth-child(n+22):nth-child(-n+27) {
+  transform: translateX(20%);
+  opacity: 0;
+  animation: small-parts-anim 5s ease forwards calc(-3s * var(--i))
+}
+
+.first svg path:nth-of-type(7n) {
+  opacity: 0;
+  animation: main-part-anim 2s ease forwards;
+}
+
+.first svg path:nth-of-type(7) {
+  transform: translateY(-20%);
+}
+
+.first svg path:nth-of-type(14) {
+  transform: translateY(20%);
+}
+
+.first svg path:nth-of-type(21) {
+  transform: translateX(-20%);
+}
+
+.first svg path:nth-of-type(28) {
+  transform: translateX(20%);
+}
+
+svg path:nth-of-type(n+28):nth-child(-n+33) {
+  animation: words-anim var(--i) ease forwards
+}
+
+@keyframes words-anim {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes main-part-anim {
+  10% {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes small-parts-anim {
+  60% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
