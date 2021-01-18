@@ -42,6 +42,7 @@
                 const blue = pixels.data[(y * 4 * pixels.width) + (x * 4 + 2)];
                 const brightness = calculateRelativeBrightness(red, green, blue);
                 const color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+                // const color = 'white';
                 const cell = [
                     {
                         cellBrightness: brightness,
@@ -71,23 +72,38 @@
                 this.size = Math.random() * .5 + 1;
                 this.position1 = Math.floor(this.y);
                 this.position2 = Math.floor(this.x);
+                this.angle = 0;
             }
 
             update() {
                 this.position1 = Math.floor(this.y);
                 this.position2 = Math.floor(this.x);
-                this.speed = mappedImage[this.position1][this.position2][0].cellBrightness;
+                if (mappedImage[this.position1] && mappedImage[this.position1][this.position2]) {
+                    this.speed = mappedImage[this.position1][this.position2][0].cellBrightness;
+                }
+
                 let movement = (2.5 - this.speed) + this.velocity;
-                this.y += movement;
-                if (this.y >= canvas.height) {
-                    this.x = Math.random() * canvas.width;
+                this.angle += this.speed;
+
+                this.y += movement + Math.sin(this.angle) * 4;
+                this.x += movement + Math.sin(this.angle) * 2;
+
+                if (this.y >= canvas.height) {// fall on y axis
                     this.y = 0;
+                    this.x = Math.random() * canvas.width;
+                }
+
+                if (this.x >= canvas.width) {// fall on x axis
+                    this.x = 0;
+                    this.y = Math.random() * canvas.height;
                 }
             }
 
             draw() {
                 ctx.beginPath();
-                ctx.fillStyle = mappedImage[this.position1][this.position2][0].color;
+                if (mappedImage[this.position1] && mappedImage[this.position1][this.position2]) {
+                    ctx.fillStyle = mappedImage[this.position1][this.position2][0].color;
+                }
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
             }
