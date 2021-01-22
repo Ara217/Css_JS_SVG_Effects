@@ -5,7 +5,6 @@ let w = c.width = window.innerWidth,
     ctx = c.getContext( '2d' ),
 
     opts = {
-
         len: 20,
         count: 5000,
         baseTime: 10,
@@ -40,7 +39,6 @@ ctx.fillStyle = 'black';
 ctx.fillRect( 0, 0, w, h );
 
 function loop() {
-
     window.requestAnimationFrame( loop );
 
     ++tick;
@@ -91,7 +89,6 @@ Line.prototype.beginPhase = function(){
         this.reset();
 }
 Line.prototype.step = function(){
-
     ++this.time;
     ++this.cumulativeTime;
 

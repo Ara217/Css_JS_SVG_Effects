@@ -15,7 +15,6 @@
                 img.onload = function (e) {
                     width = e.target.width;
                     height = e.target.height;
-                    console.info(width, height);
                 }
             };
             reader.readAsDataURL(file.files[0]);
@@ -28,7 +27,7 @@
         canvas.width = 1920;
         canvas.height = 1080;
         const particleArray = [];
-        const numberOfParticles = 10000;
+        const numberOfParticles = 8000;
         let mappedImage = [];
         //todo clear canvas before new image draw
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
@@ -85,13 +84,16 @@
                 let movement = (2.5 - this.speed) + this.velocity;
                 this.angle += this.speed;
 
-                this.y += movement + Math.sin(this.angle) * 4;
-                this.x += movement + Math.sin(this.angle) * 2;
+                this.y += movement;
+                // this.x += movement;
 
-                if (this.y >= canvas.height) {// fall on y axis
-                    this.y = 0;
-                    this.x = Math.random() * canvas.width;
-                }
+                // this.y += movement + Math.sin(this.angle) * 4;
+                // this.x += movement + Math.sin(this.angle) * 2;
+                //
+                // if (this.y >= canvas.height) {// fall on y axis
+                //     this.y = 0;
+                //     this.x = Math.random() * canvas.width;
+                // }
 
                 if (this.x >= canvas.width) {// fall on x axis
                     this.x = 0;
