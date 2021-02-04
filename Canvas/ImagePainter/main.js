@@ -39,8 +39,8 @@
                 const green = pixels.data[(y * 4 * pixels.width) + (x * 4 + 1)];
                 const blue = pixels.data[(y * 4 * pixels.width) + (x * 4 + 2)];
                 const brightness = calculateRelativeBrightness(red, green, blue);
-                const color = 'rgb(' + red + ',' + green + ',' + blue + ')';
-                // const color = 'white';
+                // const color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+                const color = 'white';
                 const cell = [
                     brightness,
                     color
@@ -64,7 +64,7 @@
                 this.y = 0;
                 this.speed = 0;
                 this.velocity = Math.random() * .5;
-                this.size = Math.random() * .5 + 1;
+                this.size = Math.random() + 1;
                 this.position1 = Math.floor(this.y);
                 this.position2 = Math.floor(this.x);
                 this.angle = 0;
@@ -79,9 +79,13 @@
 
                 let movement = (2.5 - this.speed) + this.velocity;
                 this.angle += this.speed / 20; //angle of falling
-
+                // console.info(this.angle, Math.sin(this.angle),  Math.cos(this.angle));
                 this.y += movement + Math.sin(this.angle) * 2;
                 this.x += movement + Math.cos(this.angle) * 2;
+
+                // this.x += movement;
+                // this.y += movement;
+
 
                 if (this.y >= canvas.height) {// fall on y axis
                     this.y = 0;
