@@ -26,7 +26,7 @@
         canvas.width = 500;
         canvas.height = 706;
         const particleArray = [];
-        const numberOfParticles = 10000;
+        const numberOfParticles = 5000;
         let mappedImage = [];
         //todo clear canvas before new image draw
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
@@ -79,12 +79,12 @@
 
                 let movement = (2.5 - this.speed) + this.velocity;
                 this.angle += this.speed / 20; //angle of falling
-                // console.info(this.angle, Math.sin(this.angle),  Math.cos(this.angle));
-                this.y += movement + Math.sin(this.angle) * 2;
-                this.x += movement + Math.cos(this.angle) * 2;
 
-                // this.x += movement;
-                // this.y += movement;
+                this.x += movement;
+                this.y += movement;
+
+                // this.y += movement + Math.sin(this.angle) * 2;
+                // this.x += movement + Math.cos(this.angle) * 2;
 
 
                 if (this.y >= canvas.height) {// fall on y axis

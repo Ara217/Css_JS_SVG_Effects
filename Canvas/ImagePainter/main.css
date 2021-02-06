@@ -22,4 +22,5 @@ input {
 }
 canvas {
     background-color: black;
+    filter: blur(2px) contrast(5);
 }
