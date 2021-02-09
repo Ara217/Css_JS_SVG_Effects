@@ -22,5 +22,7 @@ input {
 }
 canvas {
     background-color: black;
-    filter: blur(2px) contrast(5);
+    /*filter: blur(2px) contrast(14.5);*/
+    /*filter: blur(2px)  hue-rotate(125deg) contrast(14.5);*/
+    /*filter: hue-rotate(270deg);*/
 }
