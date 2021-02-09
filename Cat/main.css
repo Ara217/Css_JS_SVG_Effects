@@ -13,7 +13,7 @@ body {
 .sprites {
     display: flex;
     flex: 1;
-    background: linear-gradient(122deg, white 60%, #000 50%)
+    background: linear-gradient(122deg, white 50%, #000 50%)
 }
 
 .sprite {
