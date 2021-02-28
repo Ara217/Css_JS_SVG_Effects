@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .backgorund {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #191919;
+        }
+
+        .main {
+            width: 150px;
+            height: 200px;
+            background-color: #F2AD43;
+            border-top-left-radius: 75px;
+            border-top-right-radius: 75px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .main .sun {
+            width: 60px;
+            height: 60px;
+            bottom: 50px;
+            left: calc(50% - 30px);
+            background: #FFF58F;
+        }
+
+        .main::before, .main::after, .main .sun {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .main::before, .main::after {
+            content: ' ';
+            display: block;
+            width: 200px;
+            height: 200px;
+        }
+
+        .main::before {
+            z-index: 2;
+            bottom: -100px;
+            left: -100px;
+            background-color: #E08027
+        }
+
+        .main::after {
+            z-index: 2;
+            bottom: -100px;
+            right: -100px;
+            background-color: #824B20
+        }
+
+        .main .moon {
+            position: absolute;
+            left: 30%;
+            top: 45%;
+            width: 60px;
+            height: 60px;
+            background: #c7cbd0;
+            border-radius: 50%;
+            box-shadow: inset -10px 0 0 0 #9098a1;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .main .moon li {
+            position: absolute;
+            list-style: none;
+            background: #737277;
+            border-radius: 50%;
+        }
+        .main .moon li:nth-child(1) {
+            left: 7px;
+            top: 18px;
+            width: 18px;
+            height: 18px;
+            box-shadow: inset 3px -2px 0 0 #414043;
+        }
+        .main .moon li:nth-child(2) {
+            box-shadow: inset 3px -1px 0 0 #414043;
+            left: 40px;
+            top: 13px;
+            width: 10px;
+            height: 10px;
+        }
+
+        .main .moon li:nth-child(3) {
+            left: 30px;
+            top: 40px;
+            width: 10px;
+            height: 10px;
+            box-shadow: inset 3px -1px 0 0 #414043;
+        }
+
+        .main .moon li:nth-child(4) {
+            left: 13px;
+            top: 42px;
+            width: 6px;
+            height: 6px;
+            box-shadow: inset 2.4px -0.8px 0 0 #414043
+        }
+
+        .main .moon li:nth-child(5) {
+            left: 26px;
+            top: 7px;
+            width: 6px;
+            height: 6px;
+            box-shadow: inset 2.4px -0.8px 0 0 #414043;
+        }
+
+        .main .moon li:nth-child(6) {
+            left: 32px;
+            top: 25px;
+            width: 6px;
+            height: 6px;
+            box-shadow: inset 2.4px -0.8px 0 0 #414043;
+        }
+
+        .main .moon li:nth-child(7) {
+            left: 50px;
+            top: 32px;
+            width: 6px;
+            height: 6px;
+            box-shadow: inset 2.4px -0.8px 0 0 #414043;
+        }
+    </style>
+</head>
+<body>
+<div class="backgorund">
+    <div class="main">
+        <div class="sun"></div>
+        <div class="moon">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="hull left"></div>
+        <div class="hull right"></div>
+    </div>
+</div>
+</body>
+</html>
