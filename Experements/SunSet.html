@@ -22,7 +22,9 @@
         .main {
             width: 150px;
             height: 200px;
-            background-color: #F2AD43;
+            /*background: #F2AD43;*/
+            /*background: linear-gradient(to top, #F2AD43, #ed9000);*/
+            background: linear-gradient(to top, #283E51, #0A2342);
             border-top-left-radius: 75px;
             border-top-right-radius: 75px;
             border-bottom-left-radius: 20px;
@@ -30,14 +32,31 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            animation: skyChange 5s alternate linear
         }
-
         .main .sun {
             width: 60px;
             height: 60px;
-            bottom: 50px;
-            left: calc(50% - 30px);
+            left: 100%;
+            top: -25%;
+            /*bottom: 50px;*/
+            /*left: calc(50% - 30px);*/
             background: #FFF58F;
+            offset-path: path("m 30 30 q -100 0 -130 250");
+            animation: sunset 5s alternate linear
+        }
+
+        .main .moon {
+            position: absolute;
+            left: 100%;
+            top: -25%;
+            width: 60px;
+            height: 60px;
+            background: #c7cbd0;
+            border-radius: 50%;
+            box-shadow: inset -10px 0 0 0 #9098a1;
+            offset-path: path("m 30 30 q -100 0 -130 250");
+            animation: sunset 5s 3s alternate linear
         }
 
         .main::before, .main::after, .main .sun {
@@ -66,16 +85,26 @@
             background-color: #824B20
         }
 
-        .main .moon {
-            position: absolute;
-            left: 30%;
-            top: 45%;
-            width: 60px;
-            height: 60px;
-            background: #c7cbd0;
-            border-radius: 50%;
-            box-shadow: inset -10px 0 0 0 #9098a1;
-            transition: transform 0.2s ease-in-out;
+
+
+        @keyframes sunset {
+            from {
+                offset-distance: 0;
+            }
+            to {
+                offset-distance: 100%;
+            }
+        }
+        @keyframes skyChange {
+            from {
+                background: linear-gradient(to top, #283E51, #0A2342);
+            }
+            50% {
+                background: linear-gradient(to top, #F2AD43, #ed9000);
+            }
+            to {
+                background: linear-gradient(to top, #283E51, #0A2342);
+            }
         }
 
         .main .moon li {
@@ -140,6 +169,7 @@
         }
     </style>
 </head>
+<!--m 50 29 q -100 0 -220 250-->
 <body>
 <div class="backgorund">
     <div class="main">
