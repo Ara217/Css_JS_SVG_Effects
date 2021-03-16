@@ -1,14 +1,27 @@
+@property --hue {
+    initial-value: 0;
+    inherits: false;
+    syntax: '<number>';
+}
+@property --radius {
+    initial-value: 50;
+    inherits: false;
+    syntax: '<number>';
+}/*todo check percentage defining*/
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+.wrapper {
+    box-sizing: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
     background: black;
 }
 
@@ -28,12 +41,18 @@ body {
     right: calc(12px * var(--i));
     bottom: calc(12px * var(--i));
     border: 10px solid black;
-    border-top: 10px solid #0f0;
-    border-left: 10px solid #0f0;
-    border-radius: 50%;
-    animation: animate 1s alternate ease-in-out infinite;
+    border-top: 10px solid hsl(var(--hue, 0), 80%, 50%);
+    border-left: 10px solid hsl(var(--hue, 0), 80%, 50%);
+    border-radius: calc(var(--radius) * 1%);
+    animation: animate 1s alternate ease-in-out infinite, rainbow 2s infinite linear;
     animation-delay: calc(0.1s * var(--i));
-    filter: hue-rotate(calc(60deg * 2 * var(--i)));
+}
+
+
+@keyframes rainbow {
+    to {
+        --hue: 360;
+    }
 }
 
 @keyframes animate {
